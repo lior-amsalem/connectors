@@ -1,0 +1,20 @@
+{
+  "name": "node_connectors",
+  "version": "1.0.0",
+  "description": "Nodejs Database connectors",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha **_spec.js  --opts mocha.opts",
+    "test:watch": "./node_modules/mocha/bin/mocha **_spec.js  --opts mocha.opts --watch",
+    "coverage": "istanbul cover _mocha $(find ./lib -name \"*_spec.js\" -not -path \"./node_modules/*\")"
+  },
+  "author": "Lior Amsalem <liortauill@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.1.1",
+    "growl": "^1.10.2",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.5.0",
+    "mongoose": "^4.11.6"
+  }
+}
