@@ -1,7 +1,5 @@
-const Connector = require('./Connectors');
-const Mongoose = require('./Mongoose');
+const Initialize = require('./Initialize');
 
 module.exports = {
-    Connector: Connector,
-    Mongoose: Mongoose
+    Initialize: Initialize
 };

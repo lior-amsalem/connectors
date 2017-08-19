@@ -4,8 +4,9 @@
   "description": "Nodejs Database connectors",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha **_spec.js  --opts mocha.opts",
-    "test:watch": "./node_modules/mocha/bin/mocha **_spec.js  --opts mocha.opts --watch",
+    "test": "./node_modules/mocha/bin/mocha **/**_spec.js  --opts mocha.opts",
+    "test:watch": "./node_modules/mocha/bin/mocha **/**_spec.js  --opts mocha.opts --watch",
+    "generate-docs": "node_modules/.bin/jsdoc -c jsdoc.json",
     "coverage": "istanbul cover _mocha $(find ./lib -name \"*_spec.js\" -not -path \"./node_modules/*\")"
   },
   "author": "Lior Amsalem <liortauill@gmail.com>",
@@ -17,5 +18,9 @@
     "mocha": "^3.5.0",
     "mockgoose": "^7.3.3",
     "mongoose": "^4.11.6"
+  },
+  "devDependencies": {
+    "docdash": "^0.4.0",
+    "jsdoc": "~3.5.4"
   }
 }

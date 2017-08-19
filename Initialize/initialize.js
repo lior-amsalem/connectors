@@ -1,12 +1,20 @@
+/**
+ * @module lib/initialize
+ * @since 1.0.0
+ */
+
+const helpers = require('./helpers');
+
+/**
+ * database object with all possible connector classes.
+ * @type {Object}
+ * @example
+ * db.Mongoose(settings);
+ */
 const db = {
-    Mongoose: require('./Mongoose')
+    Mongoose: require('../Mongoose')
 };
 
-const helpers = {
-    capitalize(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-    }
-}
 
 const initialize = {
     connectors_counter: 0,

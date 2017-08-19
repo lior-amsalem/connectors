@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
-const Connectors = require('./connectors');
+const Connector = require('../connector');
 
 /**
  * Mongoose Connector
  */
-class Mongoose extends Connectors {
+class Mongoose extends Connector {
 
     get mongoose() {
         return mongoose;
