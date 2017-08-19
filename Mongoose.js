@@ -15,8 +15,6 @@ class Mongoose extends Connectors {
     }
 
     connect() {
-        super.connect();
-
         this._instance = mongoose.connect('mongodb://' + this.host + ':' + this.port + '/' + this.db_name, {useMongoClient: true});
 
         this._instance.then(() => {

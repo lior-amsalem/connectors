@@ -15,6 +15,7 @@
     "growl": "^1.10.2",
     "istanbul": "^0.4.5",
     "mocha": "^3.5.0",
+    "mockgoose": "^7.3.3",
     "mongoose": "^4.11.6"
   }
 }

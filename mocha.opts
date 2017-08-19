@@ -2,4 +2,4 @@
 --growl
 --full-trace
 --inline-diffs
---timeout 200
+--timeout 1000

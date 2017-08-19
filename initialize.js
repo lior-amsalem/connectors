@@ -1,6 +1,6 @@
 const db = {
     Mongoose: require('./Mongoose')
-}
+};
 
 const helpers = {
     capitalize(string) {
@@ -9,7 +9,9 @@ const helpers = {
 }
 
 const initialize = {
+    connectors_counter: 0,
     settings: {},
+    errors: [],
     initlize(settings) {
         console.log('constructor')
 
@@ -25,11 +27,20 @@ const initialize = {
     },
     loadDB() {
         console.log('loadDB')
-        this.settings.map((dbConfig, index) => {
-            this[dbConfig.connector_name] = new db['Mongoose'](dbConfig);//db[helpers.capitalize(db.connector_name)](db);
-        });
 
-        console.log('mongoose?' , this.mongoose.connect);
+        this.settings.map((dbConfig, index) => {
+            const connectorCapitlizedName = helpers.capitalize(dbConfig.connector_name),
+                isConnectorExists = typeof db[connectorCapitlizedName] === 'function';
+
+            if(isConnectorExists) {
+                this[dbConfig.connector_name] = new db[connectorCapitlizedName](dbConfig);
+                this.connectors_counter++;
+            } else {
+                const err = '[ERROR] Connector name not found. could be a typo or not a supported connector.';
+                console.log(err);
+                this.errors.push(err);
+            }
+        });
     },
     loadSettings() {
         const settingsPromise = new promise((resolve, reject) => {

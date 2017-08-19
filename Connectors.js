@@ -4,6 +4,8 @@ class Connectors {
     constructor(settings) {
         console.log('[Connectors] constructor')
         this.settings = settings;
+
+        this.status = false;
     }
 
     get port() {
@@ -22,8 +24,14 @@ class Connectors {
         return '';
     }
 
+    get is_connected() {
+        return this.status;
+    }
+
     connect() {
         console.log('[SYSTEM] Connected to ' + this.connector_name + ' successfully!');
+
+        this.status = true;
     }
 
     disconnect() {
