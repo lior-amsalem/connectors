@@ -1,22 +1,5 @@
-## Database Connectors
+# Beta Database Connectors
 
-# Settings Configuration Example
-```
-[
-    {
-        connector_name: 'mongoose',
-        host: 'localhost',
-        port: '',
-        db_name: ''
-    },
-    {
-        connector_name: 'mysql',
-        host: 'localhost',
-        port: '',
-        db_name: ''
-    }
-]
-```
+> Database connectors - unify way of connecting to any database (mongo, redis, sql, solar etc..)
 
-TODO:
-1. support multi connection ot the same db
+Please read the readme file inside each folder above on how to use.
