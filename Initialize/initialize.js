@@ -9,7 +9,8 @@ const helpers = require('./helpers');
  * database object with all possible connector classes.
  * @type {Object}
  * @example
- * db.Mongoose(settings);
+ * const init = require('connector/initialize');
+ * const connector = init.initlize(settings);
  */
 const db = {
     Mongoose: require('../Mongoose')

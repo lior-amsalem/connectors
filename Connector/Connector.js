@@ -60,8 +60,7 @@ class Connector {
 
     /**
      * Status of the connector - default is false
-     * @default  false
-     * @return {Boolean} returns the status of the connector.
+     * @return {Boolean|false} returns the status of the connector.
      */
     get is_connected() {
         return this.status;

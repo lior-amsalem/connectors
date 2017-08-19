@@ -3,7 +3,7 @@
         "allowUnknownTags": false
     },
     "source": {
-        "include": ["Initialize"],
+        "include": ["./"],
         "includePattern": ".js$",
         "excludePattern": "(node_modules/|docs)"
     },
