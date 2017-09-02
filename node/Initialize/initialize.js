@@ -9,8 +9,8 @@ const helpers = require('./helpers');
  * database object with all possible connector classes.
  * @type {Object}
  * @example
- * const init = require('connector/initialize');
- * const connector = init.initlize(settings);
+ * const initialize = require('connector/initialize');
+ * const connector = initialize.init(settings);
  */
 const db = {
     Mongoose: require('../Mongoose')
@@ -21,7 +21,7 @@ const initialize = {
     connectors_counter: 0,
     settings: {},
     errors: [],
-    initlize(settings) {
+    init(settings) {
         console.log('constructor')
 
         this.settings = settings;
@@ -43,9 +43,14 @@ const initialize = {
 
             if(isConnectorExists) {
                 this[dbConfig.connector_name] = new db[connectorCapitlizedName](dbConfig);
-                this.connectors_counter++;
+
+                const instance = this[dbConfig.connector_name].connect();
+
+                instance.then(() => {
+                    this.connectors_counter++;
+                });
             } else {
-                const err = '[ERROR] Connector name not found. could be a typo or not a supported connector.';
+                const err = `[ERROR] ${connectorCapitlizedName} connector name not found. could be a typo or not a supported connector.`;
                 console.log(err);
                 this.errors.push(err);
             }

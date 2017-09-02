@@ -14,8 +14,21 @@
 npm install connectors
 ```
 ```
-const init = require('connector/initialize');
-const connector = init.initlize(settings);
+// define array of connection info
+let database = [
+    {
+        connector_name: 'mongoose',
+        host: '127.0.0.1',
+        port: '27017',
+        db_name: 'db_test'
+    }
+];
+
+// require somewhere globally during application start/setup/init
+require('connectors').init(database);
+
+/// and use like that in your model:
+const {mongoose} = require('connectors');
 ```
 
 # Settings Configuration Example

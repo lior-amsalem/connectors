@@ -1,3 +1,3 @@
-const Initalize = require('./initalize');
+const Initalize = require('./Initialize');
 
 module.exports = Initalize;

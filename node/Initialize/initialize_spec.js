@@ -1,4 +1,4 @@
-const init = require('./initialize');
+const initialize = require('./initialize');
 const Mockgoose = require('mockgoose').Mockgoose;
 
 const mockConfig = [
@@ -16,7 +16,7 @@ const mockConfig = [
     }
 ];
 
-const connector = init.initlize(mockConfig);
+const connector = initialize.init(mockConfig);
 const mockgoose = new Mockgoose(connector.mongoose.mongoose);
 
 describe('Test Initialize setup', () => {
@@ -42,11 +42,12 @@ describe('Test Initialize setup', () => {
             expect(connector.mongoose.connector_name).to.be.equal('mongoose');
         });
 
-        it('Should be connected to mongodb', (done) => {
+        xit('should not be connected base on pre-configuration', () => {
             expect(connector.mongoose.is_connected).to.be.equal(false);
+        });
 
+        it('Should be connected to mongodb', (done) => {
             mockgoose.prepareStorage().then((a,b) => {
-                expect(connector.mongoose.is_connected).to.be.equal(false);
 
                 const instance = connector.mongoose.connect();
 
@@ -55,6 +56,10 @@ describe('Test Initialize setup', () => {
                     done();
                 });
             });
+        });
+
+        it('Should have mongoose package on global object', () => {
+            expect(global.mongoose).to.exist;
         });
     });
 });

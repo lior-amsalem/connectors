@@ -1,5 +1,7 @@
-const Initialize = require('./Initialize');
+const initialize = require('./Initialize');
+
 
 module.exports = {
-    Initialize: Initialize
+    init: (dbConfig) => initialize.init(dbConfig),
+    mongoose: require('mongoose')
 };
