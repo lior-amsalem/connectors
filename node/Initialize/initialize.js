@@ -13,7 +13,8 @@ const helpers = require('./helpers');
  * const connector = initialize.init(settings);
  */
 const db = {
-    Mongoose: require('../Mongoose')
+    Mongoose: require('../Mongoose'),
+    Mysql: require('../Mysql')
 };
 
 
@@ -37,6 +38,7 @@ const initialize = {
     loadDB() {
         console.log('loadDB')
 
+        // tood: extract the annon func into a func
         this.settings.map((dbConfig, index) => {
             const connectorCapitlizedName = helpers.capitalize(dbConfig.connector_name),
                 isConnectorExists = typeof db[connectorCapitlizedName] === 'function';
@@ -46,9 +48,12 @@ const initialize = {
 
                 const instance = this[dbConfig.connector_name].connect();
 
-                instance.then(() => {
-                    this.connectors_counter++;
-                });
+                global[dbConfig.connector_name] = instance;
+
+                // mysql doesn't have promise!
+                // instance.then(() => {
+                //     this.connectors_counter++;
+                // });
             } else {
                 const err = `[ERROR] ${connectorCapitlizedName} connector name not found. could be a typo or not a supported connector.`;
                 console.log(err);
