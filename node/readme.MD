@@ -50,4 +50,5 @@ const settings = [
 ```
 
 TODO:
-1. support multi connection ot the same db
+1. support multi connection at the same db.
+2. connect all configured db at once(async).

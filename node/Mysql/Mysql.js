@@ -34,20 +34,23 @@ class Mysql extends Connector {
      * @return {object} instance of mysql connection.
      */
     connect() {
-        this._instance = mysql.createConnection({
+        const mysqlInstance = mysql.createConnection({
             host: this.host,
             user: 'root',
             password: this.password,
             database: this.db_name
         });
 
-        this._instance.connect((err) => {
-            if(err) {
-                console.log(`[ERROR] [CONNECTORS] ${err}`);
-                return;
-            }
+        this._instance = new Promise((resolve, reject) => {
+            mysqlInstance.connect((err) => {
+                if(err) {
+                    reject(err);
+                    return;
+                }
 
-            super.connect();
+                resolve(mysqlInstance);
+                super.connect();
+            });
         });
 
         return this._instance;
