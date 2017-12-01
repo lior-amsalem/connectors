@@ -36,7 +36,7 @@ class Mysql extends Connector {
     connect() {
         const mysqlInstance = mysql.createConnection({
             host: this.host,
-            user: 'root',
+            user: this.username,
             password: this.password,
             database: this.db_name
         });

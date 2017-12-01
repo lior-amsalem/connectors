@@ -14,7 +14,8 @@ const helpers = require('./helpers');
  */
 const db = {
     Mongoose: require('../Mongoose'),
-    Mysql: require('../Mysql')
+    Mysql: require('../Mysql'),
+    Redis: require('../Redis')
 };
 
 /**
@@ -54,7 +55,7 @@ const initialize = {
 
                 initialize.connectors_counter++;
             }).catch(reason => {
-                console.log(`[ERROR] [INITIALIZE] [PROMISE] ${reason}`);
+                console.log(`[ERROR] [INITIALIZE] [${dbConfig.connector_name}] ${reason}`);
             });
         } else {
             const err = `[ERROR] [INITIALIZE] ${connectorCapitlizedName} connector name not found. could be a typo or not a supported connector.`;

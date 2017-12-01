@@ -52,3 +52,5 @@ const settings = [
 TODO:
 1. support multi connection at the same db.
 2. connect all configured db at once(async).
+3. consider if i need mysql + redis export in index.js
+4. mongoose promise is dep: "(node:11663) DeprecationWarning: Mongoose: mpromise (mongoose's default promise library) is deprecated, plug in your own promise library instead: http://mongoosejs.com/docs/promises.html"
