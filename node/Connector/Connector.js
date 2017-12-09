@@ -16,7 +16,6 @@ class Connector {
      * }
      */
     constructor(settings) {
-        console.log('[Connector] constructor')
         this.settings = settings;
 
         this.status = false;
@@ -47,6 +46,15 @@ class Connector {
      */
     get db_name() {
         return this.settings.db_name;
+    }
+
+    /**
+     * username.
+     * @readOnly
+     * @return {string} returns the username.
+     */
+    get username() {
+        return this.settings.username;
     }
 
     /**

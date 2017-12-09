@@ -6,7 +6,7 @@ const mockConfig = [
         connector_name: 'mongoose',
         host: '127.0.0.1',
         port: '27017',
-        db_name: 'phoenix_test'
+        db_name: 'cybernetics_test'
     },
     {
         connector_name: 'mysql',
