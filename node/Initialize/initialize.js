@@ -15,7 +15,8 @@ const helpers = require('./helpers');
 const db = {
     Mongoose: require('../Mongoose'),
     Mysql: require('../Mysql'),
-    Redis: require('../Redis')
+    Redis: require('../Redis'),
+    Rabbitmq: require('../Rabbitmq')
 };
 
 /**

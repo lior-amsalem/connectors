@@ -27,8 +27,10 @@ let database = [
 // require somewhere globally during application start/setup/init
 require('connectors').init(database);
 
-/// and use like that in your model:
+// and use like that in your model:
 const {mongoose} = require('connectors');
+// or
+db.rabbitmq.sendToQueue('queue_name', new Buffer('something...'))
 ```
 
 # Settings Configuration Example
